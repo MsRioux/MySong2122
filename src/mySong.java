@@ -1,4 +1,4 @@
-public class mySong
+public class mySong implements Media, Comparable
 {
     //1) List of instance Variables
     private String name;
@@ -6,16 +6,18 @@ public class mySong
     private double time; //length given in minutes
     private int tempo;
     private boolean isSingable; //does it have lyrics
+    private static int count;  //static variable lets me count all songs
 
     //2) Constructors
     //mutli-argument constructor
-    public mySong(String newName, String newArtist, double newTime, int newTempo, boolean newIsSingable )
+    public mySong(String name, String artist, double time, int tempo, boolean isSingable )
     {
-        name = newName;
-        artist = newArtist;
-        time = validateTime(newTime);
-        tempo = newTempo;
-        isSingable = newIsSingable;
+        this.name = name;
+        this.artist = artist;
+        this.time = validateTime(time);
+        this.tempo = tempo;
+        this.isSingable = isSingable;
+        count++;
     }//end full constructor
 
     public mySong(String newName, String newArtist, boolean newIsSingable)
@@ -25,6 +27,8 @@ public class mySong
         time = 0.0;
         tempo = 0;
         isSingable = newIsSingable;
+
+        count++;
     }//end constructor with name, artist and isSingable
 
     /*
@@ -41,12 +45,18 @@ public class mySong
 
     public mySong()
     {
-        name = "unnamed song";
-        artist = "";
-        time = 0.0;
-        tempo = 0;
-        isSingable = false;
+        this.name = "unnamed song";
+        this.artist = "";
+        this.time = 0.0;
+        this.tempo = 0;
+        this.isSingable = false;
+        count++;
     }//end default constructor
+
+    public static int getCount()
+    {
+        return count;
+    }
 
     //4) Getters  (aka accessors)
     public String getName()
@@ -54,14 +64,16 @@ public class mySong
         return name;
     }
 
+
+    // Precondition 0 <= time
     public double getTime()
     {
         return time;
     }
     //5) Setters (aka mutators)
-    public void setName(String newName)
+    public void setName(String name)
     {
-        name = newName;
+        this.name = name;
     }
 
     public void setTime(double newTime)
@@ -70,6 +82,8 @@ public class mySong
     }
 
     //6) Brain methods
+
+    //post condition 0 < = time
     private double validateTime(double newTime)
     {
         double result = 0;
@@ -107,6 +121,21 @@ public class mySong
         output += "\nTime: " + time;
         output += "\nTempo: " + tempo;
         output += "\nIs it Singable: " + isSingable;
+        return output;
+    }
+
+    @Override
+    public int compareTo(mySong mS)
+    {
+        int output = 0;
+        if(this.time < mS.getTime())
+        {
+            output = -1;
+        }
+        else if(this.time > mS.getTime())
+        {
+            output = 1;
+        }
         return output;
     }
 }//end object class mySong  aka reference class
