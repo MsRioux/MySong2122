@@ -125,14 +125,14 @@ public class mySong implements Media, Comparable
     }
 
     @Override
-    public int compareTo(mySong mS)
+    public int compareTo(Object mS)
     {
         int output = 0;
-        if(this.time < mS.getTime())
+        if(this.time < ((mySong)mS).getTime())
         {
             output = -1;
         }
-        else if(this.time > mS.getTime())
+        else if(this.time > ((mySong)mS).getTime())
         {
             output = 1;
         }

@@ -11,7 +11,20 @@ public class SongDriver
 
         myVideo cspPT = new myVideo("AP CSP Create PT", 1);
 
-        System.out.println(cspPT);
+        //using compareTo()
+        if (lover.compareTo(froggyFriend) == 0)
+        {
+            System.out.println(lover.getName() + " is the same length as" + froggyFriend.getName());
+        }
+        else if (lover.compareTo(froggyFriend) > 0)
+        {
+            System.out.println(lover.getName() + " is longer than " + froggyFriend.getName());
+        }
+        else
+        {
+            System.out.println(lover.getName() + " is shorter than " + froggyFriend.getName());
+        }
+//        System.out.println(cspPT);
 
         /*Alias practice
        if (froggyFriend == froggyFriend2)
