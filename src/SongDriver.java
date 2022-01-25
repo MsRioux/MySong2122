@@ -9,6 +9,21 @@ public class SongDriver
 
         mySong froggyFriend2 = new mySong("Froggy Friend", "Moss Talkers", true);
 
+        //Array of mySong objects
+        mySong[] playlist = {lover, twilightZone, blank, froggyFriend, froggyFriend2};
+
+        for (mySong s: playlist) { //augmented for loop : for-  each loop
+            System.out.println(s.toString() + "\n");
+        }
+        /*using array reference like object name
+        playlist[2].setName("1812 Overture");
+        System.out.println("Song at element #2:" + playlist[2].toString());
+
+         */
+
+
+
+        /*
         myVideo cspPT = new myVideo("AP CSP Create PT", 1);
 
         //using compareTo()
@@ -25,7 +40,7 @@ public class SongDriver
             System.out.println(lover.getName() + " is shorter than " + froggyFriend.getName());
         }
 //        System.out.println(cspPT);
-
+*/
         /*Alias practice
        if (froggyFriend == froggyFriend2)
        {
@@ -55,7 +70,7 @@ public class SongDriver
 //       blank.setTime(-243);
 //       System.out.println(blank.getTime());
 //
-//       System.out.println("Number of songs: " + mySong.getCount());
+       System.out.println("Number of songs: " + mySong.getCount());
 
 
 

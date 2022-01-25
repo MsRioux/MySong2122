@@ -112,18 +112,6 @@ public class mySong implements Media, Comparable
         //the return the result
 //        return minutes + seconds;
     }
-
-    //3) ToString
-    public String toString()
-    {
-        String output = "Name: " + name;
-        output += "\nArtist: " + artist;
-        output += "\nTime: " + time;
-        output += "\nTempo: " + tempo;
-        output += "\nIs it Singable: " + isSingable;
-        return output;
-    }
-
     @Override
     public int compareTo(Object mS)
     {
@@ -138,4 +126,16 @@ public class mySong implements Media, Comparable
         }
         return output;
     }
+    //3) ToString
+    public String toString()
+    {
+        String output = "Name: " + name;
+        output += "\nArtist: " + artist;
+        output += "\nTime: " + time;
+        output += "\nTempo: " + tempo;
+        output += "\nIs it Singable: " + isSingable;
+        return output;
+    }
+
+
 }//end object class mySong  aka reference class
